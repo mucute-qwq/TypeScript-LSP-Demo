@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name" translatable="false">TypeScript LSP Demo</string>
+    <string name="extracting">Extracting: %s</string>
+</resources>
