@@ -120,7 +120,7 @@ private fun MainScreenContent() {
 private fun CodeEditorNode() {
     val context = LocalContext.current
     val codeEditor = remember {
-        CodeEditor(context).apply {
+        CodeEditorFixed(context).apply {
             val typeface =
                 Typeface.createFromAsset(context.assets, "font/JetBrainsMono-Regular.ttf")
             typefaceLineNumber = typeface
