@@ -16,7 +16,6 @@ class ProcessStreamConnectionProvider : StreamConnectionProvider {
             env["OPENSSL_CONF"] = ""
         }
         .redirectErrorStream(true)
-        // .redirectOutput(AppContext.instance.filesDir.resolve("output.txt"))
 
     private lateinit var process: Process
 
@@ -24,7 +23,7 @@ class ProcessStreamConnectionProvider : StreamConnectionProvider {
         get() = process.inputStream
 
     override val outputStream: OutputStream
-        get() = process.outputStream // AppContext.instance.filesDir.resolve("input.txt").outputStream()
+        get() = process.outputStream
 
     override fun start() {
         process = processBuilder.start()
