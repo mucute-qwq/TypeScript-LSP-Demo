@@ -1,5 +1,5 @@
 # TypeScript-LSP-Demo
-A simple demo with sora-editor and TypeScript LSP usage
+An uncomplicated demo with sora-editor and TypeScript LSP usage
 
 ## Screenshots
 <div style="overflow: hidden">
