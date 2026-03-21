@@ -25,6 +25,9 @@ class ProcessStreamConnectionProvider : StreamConnectionProvider {
     override val outputStream: OutputStream
         get() = process.outputStream
 
+    override val isClosed: Boolean
+        get() = !process.isAlive
+
     override fun start() {
         process = processBuilder.start()
     }

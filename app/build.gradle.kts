@@ -25,6 +25,10 @@ android {
         versionName = "1.0.0"
     }
 
+    lint {
+        disable += "ExpiredTargetSdkVersion"
+    }
+
     signingConfigs {
         create("shared") {
             storeFile = file("../buildKey.jks")

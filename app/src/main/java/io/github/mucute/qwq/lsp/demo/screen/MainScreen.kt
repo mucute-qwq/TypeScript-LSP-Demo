@@ -12,9 +12,9 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.retain.retain
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -25,20 +25,18 @@ import androidx.core.content.edit
 import io.github.mucute.qwq.lsp.demo.R
 import io.github.mucute.qwq.lsp.demo.component.ExtractDialog
 import io.github.mucute.qwq.lsp.demo.component.LoadingContent
+import io.github.mucute.qwq.lsp.demo.lsp.ProcessStreamConnectionProvider
 import io.github.mucute.qwq.lsp.demo.util.ExtractState
 import io.github.mucute.qwq.lsp.demo.util.extractBinariesFlow
 import io.github.rosemoe.sora.langs.monarch.MonarchColorScheme
 import io.github.rosemoe.sora.langs.monarch.MonarchLanguage
 import io.github.rosemoe.sora.langs.monarch.registry.ThemeRegistry
-import io.github.rosemoe.sora.widget.CodeEditor
-import kotlinx.coroutines.flow.onCompletion
-import androidx.compose.runtime.remember
-import io.github.mucute.qwq.lsp.demo.editor.CodeEditorFixed
-import io.github.mucute.qwq.lsp.demo.lsp.ProcessStreamConnectionProvider
 import io.github.rosemoe.sora.lsp.client.languageserver.serverdefinition.CustomLanguageServerDefinition
 import io.github.rosemoe.sora.lsp.editor.LspEditor
 import io.github.rosemoe.sora.lsp.editor.LspProject
+import io.github.rosemoe.sora.widget.CodeEditor
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.withContext
 import org.eclipse.lsp4j.DidChangeWorkspaceFoldersParams
 import org.eclipse.lsp4j.WorkspaceFolder
@@ -120,7 +118,7 @@ private fun MainScreenContent() {
 private fun CodeEditorNode() {
     val context = LocalContext.current
     val codeEditor = remember {
-        CodeEditorFixed(context).apply {
+        CodeEditor(context).apply {
             val typeface =
                 Typeface.createFromAsset(context.assets, "font/JetBrainsMono-Regular.ttf")
             typefaceLineNumber = typeface
