@@ -7,7 +7,7 @@ android {
     namespace = "io.github.mucute.qwq.lsp.demo"
 
     compileSdk {
-        version = release(36)
+        version = release(37)
     }
 
     defaultConfig {
